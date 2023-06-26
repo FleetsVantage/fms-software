@@ -15,16 +15,23 @@ export default function Home() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const res = await fetch("api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
+    try {
+      const res = await fetch("api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
 
-    if (res.status === 200) {
-      alert("Login successful");
-    } else {
-      alert("Login failed");
+      const data = await res.json();
+
+      if (res.ok) {
+        alert(data.message)
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error("An unexpected error occured:", error);
+      alert("An unexpected error occured, Plese try again. ");
     }
   }
 
