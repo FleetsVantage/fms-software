@@ -1,14 +1,15 @@
 import { compare } from "bcryptjs"; // You should hash passwords before storing them
+import { withIronSession } from "next-iron-session";
 
-export default function login(req, res) {
+const handlers = async (req, res) => {
   if (req.method !== "POST") {
-    return res.status(405).end(); // Method Not Allowed
+    return res.status(405).end();
   }
 
   const { username, password } = req.body;
 
-  // Here, we're hardcoding the user "asunny" with password "sunnya"
   const hardcodedUser = {
+    id: 1, // Mock user ID
     username: "asunny",
     password: "sunnya",
   };
@@ -21,6 +22,16 @@ export default function login(req, res) {
     return;
   }
 
-  // Successful login
+  // If login was successful:
+  req.session.set("user", { id: hardcodedUser.id }); // Replace 'user.id' with actual user ID
+  await req.session.save();
+
   res.status(200).json({ message: "Logged in successfully" });
-}
+};
+export default withIronSession(handler, {
+  password: process.env.SECRET_COOKIE_PASSWORD,
+  cookieName: "MY_APP_COOKIE",
+  cookieOptions: {
+    secure: process.env.NODE_ENV === "production",
+  },
+});
