@@ -25,7 +25,7 @@ export default function Home() {
       const data = await res.json();
 
       if (res.ok) {
-        alert(data.message)
+        alert(data.message);
       } else {
         alert(data.message);
       }
