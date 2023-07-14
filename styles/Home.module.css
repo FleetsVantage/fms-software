@@ -97,7 +97,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -107,6 +107,62 @@
 .logo {
   position: relative;
 }
+
+.loginFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius);
+  width: 400px;
+  margin-top: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.loginForm label {
+  display: flex;
+  flex-direction: column;
+  color: #fff; /* Change this color based on your preference and your background */
+}
+
+.loginForm input[type="text"],
+.loginForm input[type="password"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* This will create a subtle background for input fields */
+  color: #fff; /* This makes the input text color white. Change this if needed. */
+}
+
+.loginForm input[type="submit"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+.loginForm input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
