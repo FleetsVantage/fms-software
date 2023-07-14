@@ -3,11 +3,13 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   // states
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,7 +27,7 @@ export default function Home() {
       const data = await res.json();
 
       if (res.ok) {
-        alert(data.message);
+        router.push("/dashboard");
       } else {
         alert(data.message);
       }

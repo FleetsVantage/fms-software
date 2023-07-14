@@ -1,7 +1,7 @@
 import { compare } from "bcryptjs"; // You should hash passwords before storing them
 import { withIronSession } from "next-iron-session";
 
-const handlers = async (req, res) => {
+const handler = async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).end();
   }
@@ -28,6 +28,7 @@ const handlers = async (req, res) => {
 
   res.status(200).json({ message: "Logged in successfully" });
 };
+
 export default withIronSession(handler, {
   password: process.env.SECRET_COOKIE_PASSWORD,
   cookieName: "MY_APP_COOKIE",
