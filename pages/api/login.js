@@ -3,7 +3,7 @@ import { withIronSession } from "next-iron-session";
 
 const handler = async (req, res) => {
   if (req.method !== "POST") {
-    return res.status(405).end();
+    return res.status(405).json({ message: "Method Not Allowed" });
   }
 
   const { username, password } = req.body;
