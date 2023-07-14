@@ -1,4 +1,4 @@
-import "../styles/EVUsageStatus.module.css";
+import styles from "../styles/EVUsageStatus.module.css";
 import React, { useState, useEffect, useRef } from "react";
 import Select from "react-select";
 import * as d3 from "d3";
@@ -45,17 +45,17 @@ function EVUsageStatus(props) {
     chargeErrors,
   }) {
     return (
-      <div className="card-info">
-        <div className="card-item">
+      <div className={styles["card-info"]}>
+        <div className={styles["card-item"]}>
           <h6>Estimated Range: {estimatedRange} miles</h6>
         </div>
-        <div className="card-item">
+        <div className={styles["card-item"]}>
           <h6>Time Until Recharge: {timeUntilRecharge} minutes</h6>
         </div>
-        <div className="card-item">
+        <div className={styles["card-item"]}>
           <h6>Ping Time: {pingTime} ms</h6>
         </div>
-        <div className="card-item">
+        <div className={styles["card-item"]}>
           <h6>Charge Errors Message: {chargeErrors}</h6>
         </div>
       </div>
@@ -360,7 +360,7 @@ function EVUsageStatus(props) {
     <div>
       <Form.Group>
         <Card.Title style={{ textAlign: "center" }}>EV Usage Status</Card.Title>
-        <div className="select-container">
+        <div className={styles["select-container"]}>
           <div onClick={(e) => e.stopPropagation()}>
             <Select
               value={vehicleItems.find(
@@ -368,61 +368,61 @@ function EVUsageStatus(props) {
               )}
               options={vehicleItems}
               onChange={handleSelectVehicle}
-              className="basic-single vehicle-select"
+              className={styles["basic-single vehicle-select"]}
               classNamePrefix="select"
               placeholder="Select Vehicle"
             />
           </div>
         </div>
       </Form.Group>
-      <div className="status-container">
-        <div className="status-item">
-          <div className="status-wrapper" data-color="success">
+      <div className={styles["status-container"]}>
+        <div className={styles["status-item"]}>
+          <div className={styles["status-wrapper"]} data-color="success">
             <StatusIndicator color="success" />
           </div>
-          <span className="status-text">Vehicle Status</span>
+          <span className={styles["status-text"]}>Vehicle Status</span>
         </div>
-        <div className="status-item">
-          <div className="status-wrapper" data-color="standby">
+        <div className={styles["status-item"]}>
+          <div className={styles["status-wrapper"]} data-color="standby">
             <StatusIndicator color="standby" />
           </div>
-          <span className="status-text">Ping Status</span>
+          <span className={styles["status-text"]}>Ping Status</span>
         </div>
-        <div className="status-item">
-          <div className="status-wrapper" data-color="danger">
+        <div className={styles["status-item"]}>
+          <div className={styles["status-wrapper"]} data-color="danger">
             <StatusIndicator color="danger" />
           </div>
-          <span className="status-text">Charging Status</span>
+          <span className={styles["status-text"]}>Charging Status</span>
         </div>
-        <div className="status-item">
+        <div className={styles["status-item"]}>
           <button
-            className="notification-btn"
+            className={styles["notification-btn"]}
             type="button"
             data-toggle="dropdown"
             onClick={handleDropdownClick}
           >
-            <i className="fas fa-bell"></i>
+            <i className={styles["fas fa-bell"]}></i>
           </button>
 
           <div
-            className="dropdown-menu"
+            className={styles["dropdown-menu"]}
             style={{ display: dropdownVisible ? "block" : "none" }}
           >
-            <a className="dropdown-item" href="#">
+            <a className={styles["dropdown-item"]} href="#">
               Notification 1
             </a>
-            <a className="dropdown-item" href="#">
+            <a className={styles["dropdown-item"]} href="#">
               Notification 2
             </a>
-            <a className="dropdown-item" href="#">
+            <a className={styles["dropdown-item"]} href="#">
               Notification 3
             </a>
           </div>
         </div>
       </div>
 
-      <div className="chart-frame">
-        <div className="chart-container">
+      <div className={styles["chart-frame"]}>
+        <div className={styles["chart-container"]}>
           <p>Usage 5 hours ago</p>
           <svg
             ref={svgRef}
@@ -438,9 +438,9 @@ function EVUsageStatus(props) {
         />
       </div>
 
-      <div className="chart-frame">
-        <div className="chart-container">
-          <div className="d-flex">
+      <div className={styles["chart-frame"]}>
+        <div className={styles["chart-container"]}>
+          <div className={styles["d-flex"]}>
             <span
               className={`badge badge-pill badge-primary mr-2 ${
                 selectedItem === "Daily" ? "active-pill" : ""

@@ -54,9 +54,19 @@ const Dashboard = ({ user }) => {
     const expandedCardElement = document.querySelector(".expanded-card");
 
     if (expandedCardElement) {
+      console.log("Found expanded card element", expandedCardElement);
+
       const canvas = await html2canvas(expandedCardElement);
       const snapshot = canvas.toDataURL();
-      setSnapshots((prevState) => ({ ...prevState, [cardId]: snapshot }));
+      console.log("Generated snapshot", snapshot);
+
+      setSnapshots((prevState) => {
+        const newState = { ...prevState, [cardId]: snapshot };
+        console.log("New state", newState);
+        return newState;
+      });
+    } else {
+      console.error("Expanded card element not found");
     }
   };
 
@@ -121,13 +131,13 @@ const Dashboard = ({ user }) => {
 
     setGreeting(newGreeting);
     setEmoji(newEmoji);
-    const handleClickOutside = (event) => {
+    const handleClickOutside = async (event) => {
       if (
         selectedCard &&
         event.target.closest(".expanded-card") === null &&
         !expandedCardRef.current.contains(event.target)
       ) {
-        takeSnapshot(selectedCard);
+        await takeSnapshot(selectedCard);
         setSelectedCard(null);
       }
     };
@@ -236,6 +246,7 @@ const Dashboard = ({ user }) => {
           {cardItems.slice(0, 3).map((item) => (
             <Col key={item.id} xs={12} sm={6} md={4} lg={4} xl={4}>
               <Card
+                className={styles["card"]}
                 onClick={(e) => {
                   e.stopPropagation();
                   if (selectedCard === item.id) {
@@ -269,6 +280,7 @@ const Dashboard = ({ user }) => {
           {cardItems.slice(3, 6).map((item) => (
             <Col key={item.id} xs={12} sm={6} md={4} lg={4} xl={4}>
               <Card
+                className={styles["card"]}
                 onClick={(e) => {
                   e.stopPropagation();
                   if (selectedCard === item.id) {

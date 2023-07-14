@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import Select from "react-select";
-import "../styles/EVSystemHealth.module.css";
+import styles from "../styles/EVSystemHealth.module.css";
 
 const vehicleParts = [
   {
@@ -46,7 +46,7 @@ function EVSystemHealth(props) {
   };
 
   return (
-    <div className="card-content">
+    <div className={styles["card-content"]}>
       <Card className="ev-system-health-card">
         <Card.Body className="ev-system-health-card-body">
           <div className="ev-system-health-content">
