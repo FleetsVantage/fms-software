@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { withIronSession } from "next-iron-session";
 import styles from "../styles/Dashboard.module.css";
 // import "./Sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -338,5 +339,31 @@ const Dashboard = ({ user }) => {
     </div>
   );
 };
+
+export const getServerSideProps = withIronSession(
+  async ({ req, res }) => {
+    const user = req.session.get("user");
+
+    if (!user) {
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false,
+        },
+      };
+    }
+
+    return {
+      props: { user },
+    };
+  },
+  {
+    password: process.env.SECRET_COOKIE_PASSWORD,
+    cookieName: "MY_APP_COOKIE",
+    cookieOptions: {
+      secure: process.env.NODE_ENV === "production",
+    },
+  }
+);
 
 export default Dashboard;
