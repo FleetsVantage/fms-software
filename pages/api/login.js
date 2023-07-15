@@ -23,7 +23,10 @@ const handler = async (req, res) => {
   }
 
   // If login was successful:
-  req.session.set("user", { id: hardcodedUser.id }); // Replace 'user.id' with actual user ID
+  req.session.set("user", {
+    id: hardcodedUser.id,
+    username: hardcodedUser.username,
+  }); // Replace 'user.id' with actual user ID
   await req.session.save();
 
   res.status(200).json({ message: "Logged in successfully" });

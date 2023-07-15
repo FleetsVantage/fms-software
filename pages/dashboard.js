@@ -125,7 +125,7 @@ const Dashboard = ({ user }) => {
     }
 
     if (user) {
-      newGreeting = `${newGreeting}, ${user}!`;
+      newGreeting = `${newGreeting}, ${user.username}!`;
     } else {
       newGreeting = `${newGreeting}!`;
     }
