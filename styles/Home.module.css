@@ -5,6 +5,7 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  background-color: rgba(var(--background-start-rgb), 1);
 }
 
 .description {
@@ -118,6 +119,7 @@
   border-radius: var(--border-radius);
   width: 400px;
   margin-top: 2rem;
+  color: white;
   backdrop-filter: blur(10px);
 }
 
