@@ -1,0 +1,102 @@
+export default colors;
+declare namespace colors {
+    import muted = gray700;
+    export { muted };
+    export { gray800 as default };
+    import dark = gray900;
+    export { dark };
+    import selected = blue500;
+    export { selected };
+    import tint1 = gray50;
+    export { tint1 };
+    import tint2 = gray75;
+    export { tint2 };
+    export const overlay: string;
+    import yellowTint = yellow100;
+    export { yellowTint };
+    import greenTint = green25;
+    export { greenTint };
+    import orangeTint = orange25;
+    export { orangeTint };
+    import redTint = red25;
+    export { redTint };
+    import blueTint = blue25;
+    export { blueTint };
+    import purpleTint = purple100;
+    export { purpleTint };
+    import tealTint = teal100;
+    export { tealTint };
+    export namespace border {
+        export default colorScales.gray300;
+        import muted_1 = colorScales.gray200;
+        export { muted_1 as muted };
+    }
+    export namespace icon {
+        export default colorScales.gray700;
+        import muted_2 = colorScales.gray600;
+        export { muted_2 as muted };
+        import disabled = colorScales.gray400;
+        export { disabled };
+        import selected_1 = colorScales.blue500;
+        export { selected_1 as selected };
+    }
+    export namespace text {
+        import danger = colorScales.red500;
+        export { danger };
+        import success = colorScales.green500;
+        export { success };
+        import info = colorScales.blue500;
+        export { info };
+    }
+    export const gray900: string;
+    export const gray800: string;
+    export const gray700: string;
+    export const gray600: string;
+    export const gray500: string;
+    export const gray400: string;
+    export const gray300: string;
+    export const gray200: string;
+    export const gray100: string;
+    export const gray90: string;
+    export const gray75: string;
+    export const gray50: string;
+    export const white: string;
+    export const blue900: string;
+    export const blue800: string;
+    export const blue700: string;
+    export const blue600: string;
+    export const blue500: string;
+    export const blue400: string;
+    export const blue300: string;
+    export const blue200: string;
+    export const blue100: string;
+    export const blue50: string;
+    export const blue25: string;
+    export const red700: string;
+    export const red600: string;
+    export const red500: string;
+    export const red300: string;
+    export const red100: string;
+    export const red25: string;
+    export const green900: string;
+    export const green800: string;
+    export const green700: string;
+    export const green600: string;
+    export const green500: string;
+    export const green400: string;
+    export const green300: string;
+    export const green200: string;
+    export const green100: string;
+    export const green25: string;
+    export const orange700: string;
+    export const orange500: string;
+    export const orange100: string;
+    export const orange25: string;
+    export const purple600: string;
+    export const purple100: string;
+    export const teal800: string;
+    export const teal100: string;
+    export const yellow800: string;
+    export const yellow100: string;
+}
+declare namespace colorScales { }
